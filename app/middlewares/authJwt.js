@@ -35,7 +35,7 @@ export const isAdmin = async (req, res, next) => {
 
         const roles = await user.getRoles();
 
-        const adminRole = roles.find((role) => role.name === "admin");
+        const adminRole = roles.find((role) => role.name === "ADMIN");
 
         if (adminRole){
             next();
@@ -54,7 +54,7 @@ export const isModerator = async (req, res, next) => {
         const user = await User.findByPk(req.userId);
         const roles = await user.getRoles();
 
-        const modRole = roles.find((role) => role.name === "moderator");
+        const modRole = roles.find((role) => role.name === "MODERATOR");
 
         if (modRole) {
             next();
